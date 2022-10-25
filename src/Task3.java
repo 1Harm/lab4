@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.Scanner;
 
 public class Task3 {
     double x, y;
@@ -18,28 +19,50 @@ public class Task3 {
 
     public static class Line {
         Point p1, p2;
-
         Line(Point point1, Point point2) {
             this.p1 = point1;
             this.p2 = point2;
+
         }
 
-        public Point midpoint() {
-            return new Point((int) ((p1.getX() + p2.getX()) / 2), (int) ((p1.getY() + p2.getY()) / 2));
+        @Override
+        public String toString() {
+            return "Line{" +
+                    "p1=" + p1 +
+                    ", p2=" + p2 +
+                    '}';
         }
 
         public double canad() {
-            if (p2.getY() -p1.getY()>p1.getX() - p2.getX()) {
+            if (Math.abs(p2.getY() -p1.getY())>Math.abs(p1.getX() - p2.getX())) {
                 return Math.abs(
                         (p2.getY() -p1.getY())
                 );
-            } else return 0;
-        }
+            } else return 0;}
 
         public static void main(String args[]) {
-            Task5.Line s = new Task5.Line(new Point( 1, -5), new Point(5, 10));
-            double as = (double) s.canad();
+            int N=2;
+            int[] length=new int[N];
+            Scanner input = new Scanner(System.in);
+            Point[] d=new Point[N];
+            for (int i = 0; i < N; i++) {
+                d[i]=new Point(input.nextInt(), input.nextInt());
+            }
+
+            Line[] lines=new Line[N];
+            Line s=new Line(new Point(0,0),new Point(0,0));
+            for(int i=0;i<N-1;i++) {
+                for (int j = 0; j < N; j++) {
+                        s = new Line(new Point((int) d[i].getX(), (int) d[i].getY()), new Point((int) d[j].getX(), (int) d[j].getY()));
+                }
+            }
+            System.out.println(s.toString());
+
+            double as = s.canad();
             System.out.println("Length   = " + as);
         }
     }
 }
+
+
+
