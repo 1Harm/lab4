@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.Scanner;
 
 public class Task5 {
     double x, y;
@@ -18,10 +19,18 @@ public class Task5 {
 
     public static class Line {
         Point p1, p2;
-
         Line(Point point1, Point point2) {
-            this.p1 = point1;
-            this.p2 = point2;
+                this.p1 = point1;
+                this.p2 = point2;
+
+        }
+
+        @Override
+        public String toString() {
+            return "Line{" +
+                    "p1=" + p1 +
+                    ", p2=" + p2 +
+                    '}';
         }
 
         public double canad() {
@@ -33,8 +42,26 @@ public class Task5 {
         }
 
         public static void main(String args[]) {
-            Line s = new Line(new Point(2, 2), new Point(5, 2));
-            double as = (double) s.canad();
+            int N=5;
+            int[] length=new int[N];
+            Scanner input = new Scanner(System.in);
+            Point[] d=new Point[N];
+            for (int i = 0; i < N; i++) {
+                d[i]=new Point(input.nextInt(), input.nextInt());
+            }
+
+            Line[] lines=new Line[N];
+            Line s=new Line(new Point(0,0),new Point(0,0));
+            for(int i=0;i<N-1;i++) {
+                for (int j = 0; j < N; j++) {
+                    if (d[i].getY() == d[j].getY()) {
+                         s = new Line(new Point((int) d[i].getX(), (int) d[i].getY()), new Point((int) d[j].getX(), (int) d[j].getY()));
+                    }
+                }
+            }
+            System.out.println(s.toString());
+
+            double as = s.canad();
             System.out.println("Length   = " + as);
         }
     }
