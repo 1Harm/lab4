@@ -5,7 +5,7 @@ public class Task1 {
             int max=0;
             int temp=0;
         for (int i = 0; i < n; i++) {
-            temp = (arr[i]*i* height[i]) / 2;
+            temp = (arr[i]* height[i]) / 2;
             if (temp > max) {
                 max = temp;
             }
