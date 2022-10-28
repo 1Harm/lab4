@@ -43,11 +43,18 @@ public class Task9 {
                     }
                 }
             }
-
+            int index = 0;
+            int max = arr[N - 1];
+            for (int i = 0; i < N; i++) {
+                if (arr[i] > max) {
+                    max = arr[i];
+                    index = i;
+                }
+            }
             int maxEff = maxIndex(N, fluctuation_counter);
 
-            System.out.println("Most fluctuation period: starting " + startingIndexes[maxEff] + " "
-                    + "end" + endIndexes[maxEff]  );
+            System.out.println("Most fluctuation period: starting in index " + startingIndexes[maxEff] + " "
+                    + "and ends in " + endIndexes[maxEff]  );
         }
 
         private static int maxIndex(int N, int[] arr) {

@@ -14,6 +14,7 @@ public class Task8 {
         int max=0;
         Vector<Integer> m=new Vector<Integer>();
         Vector<Integer> min=new Vector<Integer>();
+
         if (arr[0] > arr[1]) {
             mx.add(0);
             temp += 2;
@@ -42,7 +43,7 @@ public class Task8 {
             else {
                 st -= 1;
 
-                System.out.print("Indexes " + i + " ");
+                System.out.print("Indexes " + (i-1)+" " +i+" "+(i+1)+" ");
             }
 
 
