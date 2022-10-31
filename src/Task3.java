@@ -59,7 +59,7 @@ public class Task3 {
             System.out.println(s.toString());
 
             double as = s.canad();
-            System.out.println("Length   = " + as);
+            System.out.println("Height   = " + as);
         }
     }
 }
