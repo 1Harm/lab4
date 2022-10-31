@@ -10,11 +10,12 @@ public class Task9 {
                 if (i+1==n) break;
                 else {
                     point_diff[i] = arr[i + 1] - arr[i];
-                    if (Math.abs(point_diff[i] / arr[i]) < 0.05){
+                    if (point_diff[i] / arr[i] > 0.05) {
+                        fluctuations[i] = 2;}
+                    else if (Math.abs(point_diff[i] / arr[i]) < 0.05){
                         fluctuations[i] = -1;
-                    } else if (point_diff[i] / arr[i] > 0.05) {
-                        fluctuations[i] = 2;
-                    } else if (point_diff[i] / arr[i] < 0.05){
+                    }
+                     else if (point_diff[i] / arr[i] < 0.05){
                         fluctuations[i] = -2;
                     }
                 }
